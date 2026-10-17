@@ -4,33 +4,591 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <meta name="theme-color" content="#f8faf7">
+  <meta name="description" content="Anubhob Kumar Pramanik — Agricultural Economics, research, data analysis, and technology.">
+  <title>Anubhob Kumar Pramanik | Portfolio</title>
+
   <style>
+    :root {
+      --green: #176b45;
+      --dark: #17382a;
+      --light: #f5f8f3;
+      --white: #ffffff;
+      --muted: #64736a;
+      --border: #e1e9e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #fff7ed;
-      color: #292524;
-      text-align: center;
-      padding: 80px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.7;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      background: var(--light);
+      padding: 110px 0 100px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--green);
+      background: #e4efe5;
+      padding: 6px 13px;
+      border-radius: 30px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
     h1 {
-      color: #ea580c;
+      max-width: 780px;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      line-height: 1.12;
+      letter-spacing: -2.5px;
+      margin-bottom: 24px;
     }
-    button {
-      background: #ea580c;
-      color: white;
-      border: none;
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 21px;
+      border: 1px solid var(--green);
       border-radius: 8px;
-      padding: 12px 20px;
-      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--green);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.88;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-label {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+      margin: 8px 0 20px;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+      background: var(--light);
+    }
+
+    .info-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 9px;
+    }
+
+    .projects {
+      background: var(--light);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 27px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(23, 56, 42, 0.07);
+    }
+
+    .project-number {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .project-card h3 {
+      margin: 12px 0;
+      font-size: 1.25rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: #e8f1e8;
+      color: var(--green);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .education {
+      background: var(--light);
+    }
+
+    .education-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: 10px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background: var(--dark);
+      color: white;
+      padding: 48px;
+      border-radius: 18px;
+    }
+
+    .contact-box p {
+      color: #d1ded5;
+      max-width: 600px;
+    }
+
+    .contact-box .btn {
+      margin-top: 25px;
+      color: white;
+      border-color: #8bbca0;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        gap: 13px;
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .about-grid,
+      .project-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .contact-box {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .logo {
+        font-size: 0.95rem;
+      }
+
+      .nav-links {
+        gap: 9px;
+        font-size: 0.74rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>My VS Code setup is working.</p>
-  <button onclick="alert('Everything works!')">
-    Test My Website
-  </button>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Anubhob<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Agricultural Economics · Research · Technology</span>
+
+        <h1>Hi, I'm Anubhob.<br>
+          I explore the intersection of <span>data and agriculture.</span>
+        </h1>
+
+        <p>
+          I'm an Agricultural Economics and Rural Development student
+          at Gazipur Agricultural University, interested in research,
+          data analysis, rural development, and practical technology.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">Explore my work ↗</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="section-label">A little about me</span>
+          <h2>Curious about problems. Interested in evidence.</h2>
+
+          <p>
+            I study Agricultural Economics and Rural Development at
+            Gazipur Agricultural University in Bangladesh.
+          </p>
+
+          <p>
+            I'm developing my skills in econometrics, statistical
+            analysis, research writing, and data interpretation.
+            I'm also exploring how AI and technology can make research
+            and everyday work more useful.
+          </p>
+
+          <p>
+            Outside academics, I'm interested in creative communication,
+            digital projects, and using design to make information
+            easier to understand.
+          </p>
+        </div>
+
+        <aside class="info-card">
+          <h3>At a glance</h3>
+          <p><strong>Field:</strong> Agricultural Economics</p>
+          <p><strong>University:</strong> Gazipur Agricultural University</p>
+          <p><strong>Interests:</strong> Research, data, agriculture, AI</p>
+          <p><strong>Currently:</strong> Learning and building projects</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="container">
+        <span class="section-label">Selected work</span>
+        <h2>Projects & exploration</h2>
+        <p class="section-intro">
+          A growing collection of academic interests, creative work,
+          and practical experiments. I'll add project results and
+          links as they become available.
+        </p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="project-number">PROJECT 01</span>
+            <h3>Agricultural Economics Research</h3>
+            <p>
+              Exploring questions around agricultural productivity,
+              farm economics, climate, and rural development through
+              academic research and quantitative methods.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Research</span>
+              <span class="tag">Econometrics</span>
+              <span class="tag">Agriculture</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">PROJECT 02</span>
+            <h3>Data Analysis & Visualization</h3>
+            <p>
+              Developing practical skills in organizing datasets,
+              interpreting results, and presenting evidence clearly
+              using statistical and spreadsheet tools.
+            </p>
+            <div class="tag-list">
+              <span class="tag">R</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Data</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">PROJECT 03</span>
+            <h3>GAU Insider Creative Work</h3>
+            <p>
+              Creative communication and student-focused content
+              involving graphic design, visual storytelling, and
+              digital media.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Design</span>
+              <span class="tag">Content</span>
+              <span class="tag">Communication</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">PROJECT 04</span>
+            <h3>My First Website</h3>
+            <p>
+              Building this responsive portfolio while learning
+              HTML, CSS, Git, GitHub, and website deployment.
+            </p>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <span class="section-label">What I'm developing</span>
+        <h2>Skills & interests</h2>
+        <p class="section-intro">
+          These are areas I'm learning and exploring. I'll continue
+          updating this section as my experience grows.
+        </p>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Research & Economics</h3>
+            <p>
+              Agricultural economics, econometrics, regression
+              analysis, and research writing.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Data & Tools</h3>
+            <p>
+              R, Excel, data interpretation, and statistical
+              analysis workflows.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Digital & Technology</h3>
+            <p>
+              Visual communication, website development,
+              AI-assisted workflows, and automation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="education" id="education">
+      <div class="container">
+        <span class="section-label">Education</span>
+        <h2>Academic background</h2>
+
+        <div class="education-card">
+          <h3>Gazipur Agricultural University</h3>
+          <p>Agricultural Economics and Rural Development</p>
+          <p>Undergraduate studies · Bangladesh</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-label">Let's connect</span>
+          <h2>Good ideas grow through conversation.</h2>
+          <p>
+            I'm interested in connecting with people working in
+            agricultural research, economics, data, and technology.
+            Feel free to reach out through my professional profile.
+          </p>
+
+          <!-- Replace the placeholder below with your LinkedIn URL. -->
+          <a class="btn" href="https://www.linkedin.com/" target="_blank"
+             rel="noopener noreferrer">
+            Find me on LinkedIn ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Anubhob Kumar Pramanik</p>
+      <p>Built with curiosity and code.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
