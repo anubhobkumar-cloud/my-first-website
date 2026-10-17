@@ -89,6 +89,48 @@
       padding: 110px 0 100px;
     }
 
+    
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid #dce7dc;
+  box-shadow: 0 24px 60px rgba(23, 56, 42, 0.14);
+}
+
+@media (max-width: 700px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-photo {
+    justify-self: start;
+    max-width: 340px;
+  }
+}
+
+
     .eyebrow {
       display: inline-block;
       color: var(--green);
@@ -378,27 +420,49 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <span class="eyebrow">Agricultural Economics · Research · Technology</span>
 
-        <h1>Hi, I'm Anubhob.<br>
-          I explore the intersection of <span>data and agriculture.</span>
-        </h1>
+<section class="hero" id="home">
+  <div class="container hero-inner">
 
-        <p>
-          I'm an Agricultural Economics and Rural Development student
-          at Gazipur Agricultural University, interested in research,
-          data analysis, rural development, and practical technology.
-        </p>
+    <div class="hero-content">
+      <span class="eyebrow">
+        Agricultural Economics · Research · Technology
+      </span>
 
-        <div class="buttons">
-          <a class="btn btn-primary" href="#projects">Explore my work ↗</a>
-          <a class="btn" href="#contact">Get in touch</a>
-        </div>
+      <h1>
+        Hi, I'm Anubhob.<br>
+        I explore the intersection of
+        <span>data and agriculture.</span>
+      </h1>
+
+      <p>
+        I'm an Agricultural Economics and Rural Development
+        student at Gazipur Agricultural University, interested
+        in research, data analysis, rural development, and
+        practical technology.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="#projects">
+          Explore my work ↗
+        </a>
+        <a class="btn" href="#contact">
+          Get in touch
+        </a>
       </div>
-    </section>
+    </div>
+
+    <img
+      class="hero-photo"
+      src="profile.jpg"
+      alt="Portrait of Anubhob Kumar Pramanik"
+      width="800"
+      height="1000"
+    >
+
+  </div>
+</section>
+
 
     <section id="about">
       <div class="container about-grid">
